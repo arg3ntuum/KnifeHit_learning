@@ -5,8 +5,8 @@ using UnityEngine;
 public class RandomTargets : MonoBehaviour
 {
     [SerializeField] private TargetAndBG[] scriptableObjects;
-    [SerializeField] private GameObject _backGround;
-    [SerializeField] private GameObject _target;
+    [SerializeField] private SpriteRenderer _backGround;
+    [SerializeField] private SpriteRenderer _target;
 
 
     private void Start()
@@ -16,8 +16,8 @@ public class RandomTargets : MonoBehaviour
 
     private void UpdateBGandTarget(int _takedSO)
     {
-        _backGround.GetComponent<SpriteRenderer>().sprite = scriptableObjects[_takedSO].Background;
-        _target.GetComponent<SpriteRenderer>().sprite = scriptableObjects[_takedSO].Target;
+        _backGround.sprite = scriptableObjects[_takedSO].Background;
+        _target.sprite = scriptableObjects[_takedSO].Target;
 
     }
 }
