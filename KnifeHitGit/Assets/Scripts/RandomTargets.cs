@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomTargets : MonoBehaviour
 {
-    [SerializeField] private TargetAndBG[] scriptableObjects;
+    [SerializeField] private LevelSkin[] scriptableObjects;
     [SerializeField] private SpriteRenderer _backGround;
     [SerializeField] private SpriteRenderer _target;
 

@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UIManager : MonoBehaviour
+public class UI : MonoBehaviour
 {
     [SerializeField] private Target _target;
     [SerializeField] private GameObject _restart;
     [SerializeField] private GameObject _win;
     [SerializeField] private KnifeSpawner _knifeSpawner;
     [SerializeField] private GameObject _ui;
+    [SerializeField] private Saver _saver;
+    [SerializeField] private SceneManagerMine _sceneManagerMine;
 
     [SerializeField] private GameObject[] _images;
 
@@ -23,18 +25,26 @@ public class UIManager : MonoBehaviour
     private void GetDied() {
         _restart.SetActive(true);
         StopScene();
-        
+        _saver.ProgressDelete();
     }
 
-    private void GetWin() {
-        _win.SetActive(true);
-        StopScene();
+
+    private void GetWin()
+    {
+        _saver.ProgressSave();
+        _sceneManagerMine.LoadGame();
+        
     }
+    
+    //private void GetWinOld() {
+    //    _win.SetActive(true);
+    //    StopScene();
+    //    _saver.ProgressSave();
+    //}
 
     private void StopScene() =>
         Time.timeScale = 0;
     
-
     private void UpdateHp() {
         for (int i = 0; i < _target.MaxValue; i++)
         {

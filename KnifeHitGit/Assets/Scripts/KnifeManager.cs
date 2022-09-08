@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnifeManager : MonoBehaviour
+public class KnifeSelecter : MonoBehaviour
 {
-
     [SerializeField] private SpriteRenderer _prefabKnife;
     [SerializeField] private SkinKnife[] skinKnifes;
 
