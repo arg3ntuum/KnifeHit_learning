@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class KnifeSpawner : MonoBehaviour
 {
     [SerializeField] private Knife knifePrefab;
+    
+    [SerializeField] public List<SpriteRenderer> SpriteRenderers;
+
     private Vector3Int randomRange = new Vector3Int(0, -3, 0);
     public Action Win;
     private void Start()
@@ -15,6 +18,7 @@ public class KnifeSpawner : MonoBehaviour
     }
     private void CreateNew() {
         var newKnife = Instantiate(knifePrefab, randomRange, Quaternion.identity);
+        SpriteRenderers.Add(newKnife.GetComponent<SpriteRenderer>());
         newKnife.isStuck += StuckedTarget;
         newKnife.IsCollisionKnife += StuckedKnife;
     }

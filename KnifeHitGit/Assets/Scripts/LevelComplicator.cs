@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class LevelComplicator : MonoBehaviour {
-    [SerializeField] private List<GameObject> knives = new List<GameObject>();
+    [SerializeField] private List<GameObject> _knives = new List<GameObject>();
 
     private void Start()
     {
@@ -17,9 +17,11 @@ public class LevelComplicator : MonoBehaviour {
     }
     private void SpawnKnifes(int level) {
         System.Random random = new System.Random();
-
-        for (int i = 0; i < Convert.ToInt32(Math.Round(Convert.ToDecimal(level / 3))); i++)
-            knives[i].SetActive(true);
+        int levelConvert = Convert.ToInt32(Math.Round(Convert.ToDecimal(level / 3)));
+        if (levelConvert > _knives.Count)
+            levelConvert = _knives.Count;
+        for (int i = 0; i < levelConvert; i++)
+            _knives[i].SetActive(true);
 
     }
 }
