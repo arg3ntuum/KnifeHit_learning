@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class KnifeSelecter : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _prefabKnife;
-    [SerializeField] private SkinKnife[] skinKnifes;
+    [SerializeField] private SpriteRenderer prefabKnife;
+    [SerializeField] private SkinKnife[] _skinKnifes;
 
     public void ChangeKnife(int element) {
-        _prefabKnife.sprite = skinKnifes[element].SpriteKnife;
+        prefabKnife.sprite = _skinKnifes[element].SpriteKnife;
     }
+
 }

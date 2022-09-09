@@ -46,12 +46,6 @@ public class UI : MonoBehaviour
 
     }
 
-    //private void GetWinOld() {
-    //    _win.SetActive(true);
-    //    StopScene();
-    //    _saver.ProgressSave();
-    //}
-
     private void OffAllSprites() {
         foreach (var item in _knifeSpawner.SpriteRenderers)
         {
@@ -71,8 +65,8 @@ public class UI : MonoBehaviour
     }
     IEnumerator Waiter()
     {
-        _target.GetComponent<SpriteRenderer>().enabled = false;
         OffAllSprites();
+        _target.GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1);
         _target.GetComponent<SpriteRenderer>().enabled = true;
         _particleSystem.SetActive(false);
