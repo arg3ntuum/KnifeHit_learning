@@ -41,9 +41,8 @@ public class UI : MonoBehaviour
     {
         _saver.ProgressSave();
         _particleSystem.SetActive(true);
-        StartCoroutine(Waiter());
-        
-
+        _sceneManagerMine.LoadGame();
+        //StartCoroutine(Waiter());
     }
 
     private void OffAllSprites() {

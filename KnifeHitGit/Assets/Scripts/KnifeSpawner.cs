@@ -12,15 +12,18 @@ public class KnifeSpawner : MonoBehaviour
 
     private Vector3Int randomRange = new Vector3Int(0, -3, 0);
     public Action Win;
+    public Action KnifeAdd;
     private void Start()
     {
         CreateNew();
     }
     private void CreateNew() {
+        KnifeAdd?.Invoke();
         var newKnife = Instantiate(knifePrefab, randomRange, Quaternion.identity);
         SpriteRenderers.Add(newKnife.GetComponent<SpriteRenderer>());
         newKnife.isStuck += StuckedTarget;
         newKnife.IsCollisionKnife += StuckedKnife;
+
     }
 
     private void StuckedTarget(Knife knife) {
